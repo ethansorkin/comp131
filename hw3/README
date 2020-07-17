@@ -1,0 +1,13 @@
+README
+Ethan Sorkin and Min Hu
+
+We implemented our sudoku solver using a backtracking approach to Constraint
+Satisfaction Problems. Our algorithm works as follows:
+    1. Find an open spot
+    2. Find a valid number to put in that spot
+         a. If no valid number (1-9) is found, backtrack to the last entry and
+            try the next valid number
+    3. Repeat steps 1-2 (recursively) until the entire board is solved
+
+We included our tests for the program in main(), which solved the sample
+sudoku puzzles that were provided for us.

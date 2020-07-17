@@ -1,0 +1,27 @@
+
+README
+
+Ethan Sorkin
+4/28/2020
+COMP 131: Artificial Intelligence
+
+I have successfully implented an Artificial Neural Network from scratch with
+fairly good accuracy. My ANN can usually predict the correct plant class
+80-95% of the time (the accuracy occasionally drops below that range).
+
+I initialized my weights as random values from (-1, 1), and scale my inputs to
+fit the range (-6, 6), as discussed in class. I closely followed the equations
+given in the slides, and have included all necessary components of an ANN. My
+network has 1 hidden layer.
+
+To run my program on Fisher's database, simply enter "python hw5.py" with the
+file "ANN - Iris data.txt" in the same directory.
+
+Note: I used the sklearn library to help me scale my input values using the
+MinMaxScaler method. I did not use any methods in this library that implements
+learning in the algorithm for me. I spoke to the TA, Junyi He, and he said this
+was OK because I am only using this module for calculations.
+
+Note: I definitely thought this was the most difficult assignment of the year,
+and I spent far longer on it than any other. Especially with the lack of in
+person office hours, this one was very hard to figure out conceptually.

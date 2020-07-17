@@ -1,0 +1,48 @@
+
+README
+
+Ethan Sorkin
+4/5/2020
+COMP 131: Artificial Intelligence
+
+
+My genetic algorithm takes a dynamic programming approach to the knapsack
+problem. My initial population is the 12 items we have to choose from. The
+fitness function is best_val(), which carries out the natural selection
+process based on an items weight and value, and determines whether or not to
+include it in the final solution. Each item is evaluated individually, from
+1-12. If an item does not pass the fitness function, it is not included in
+the population for that generation, therefore is culled. A new population
+is generated each iteration when a new item passes the fitness function and
+is included in the population. Since this is a dynamic programming approach,
+the final solution builds on itself each generation, and is only complete
+after all iterations have terminated. Mutation and crossover are not required
+because the optimal population is determined by selecting the most fit
+individuals, rather than modifying items or producing new ones.
+
+
+Functions:
+
+knapsack(items):
+    -Includes loop over all items that performs genetic algorithm to determine
+     the most fit individuals.
+    -backpack[] is a list keeping track of the population's value after each
+     iteration
+    -trace[] is a list keeping track of which items are included in the
+     population after each iteration
+
+best_val(n, w, backpack, items):
+    -Fitness function that determines whether or not to include an item in the
+     population
+    -Calculates the value of including the item (making adjustments to the
+     population to account for the item's weight) and compares that to not
+     including it. Selects the higher value.
+    -Returns selected value and a boolean; True is the item was included,
+     False otherwise. These are assigned to backpack[] and trace[] respectively
+
+get_items(items, trace, n, w):
+    -Recursively navigates along trace[] to compile final list of items included
+     in the backpack (AKA the final population)
+    -Starting from the last entry of trace[], if True: includes item then checks
+     previous item (shifting the backpack's capacity accordingly), if False: does
+     not include item then checks the previous item (no shift in capacity)

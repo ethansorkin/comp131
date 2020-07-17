@@ -1,0 +1,31 @@
+
+README
+
+Ethan Sorkin, Robin Park
+February 2020
+COMP 131: Artificial Intelligence
+
+
+We implemented our behavior tree with a series of if-then-else statements,
+which represent the Roomba's reflex rules. The function run() contains the
+large loop that iterates as long as the Roomba is running. We divided the
+priority composite from the behavior tree in the spec into 3 functions:
+P1(), P2(), and P3(). Within each of those functions, we check the appropriate
+conditions and execute the Roomba's tasks. Each task has a respective function
+for clarity and organization.
+
+We decided to end the Roomba's activity when all tasks are complete. We check
+for this in the function check_progress(). If a task fails, it's value is set
+to false, and the Roomba will continue running until all tasks are set to false.
+With our implementation, the only task that can fail is the Dusty Spot Clean. This
+happens when the battery falls under 30%, but the Dusty Spot Clean is still running.
+Theoretically, the General Clean would fail if it reached that task with a battery
+level less than 30%; however, since we check for that in the beginning of the loop,
+this will never happen. We included a fail case before General Clean to show our
+understanding of where it would fail, but we understand that the fail condition will
+never be met. The final design choice we made has to do with the Docking process. We
+decided to contain the charging process within a single cycle, essentially meaning
+that charging is instantaneous. Once the Roomba is fully charged, it continues to
+the next priority (P2), and runs until completion of all tasks.
+
+Test Cases explained in main().
